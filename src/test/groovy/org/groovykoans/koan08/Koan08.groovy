@@ -37,7 +37,16 @@ class Koan08 extends GroovyTestCase {
 
         def magicClosure = { input ->
             // ------------ START EDITING HERE ----------------------
-
+			switch(input)
+				{
+					case 1..100:						
+						return input/2
+					case ~/\w*[e][e]$/:
+						System.out.println("-----------------------");						
+						return "${input[0..input.size() - 3]}ey"	
+					default:
+						return input	
+				}
 
             // ------------ STOP EDITING HERE  ----------------------
         }
@@ -45,6 +54,8 @@ class Koan08 extends GroovyTestCase {
             assert magicClosure(key) == expectedValue
         }
 
+		def s="d"
+		
     }
 
     void test02_IsCaseInSwitch() {
@@ -97,7 +108,8 @@ class Koan08 extends GroovyTestCase {
         def generateTwoRandomInts=  { int maxInt ->
             // ------------ START EDITING HERE ----------------------
 
-
+			def random = new Random()
+			[random.nextInt(maxInt), random.nextInt(maxInt)]
             // ------------ STOP EDITING HERE  ----------------------
         }
 
